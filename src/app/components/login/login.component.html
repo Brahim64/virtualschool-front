@@ -1,0 +1,44 @@
+<mat-grid-list cols="6" rowHeight="14vh">
+    <mat-grid-tile [colspan]="2" [rowspan]="1" class="logo header" >
+        <span class="material-symbols-outlined">
+            school
+        </span>Virtual School
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="4" [rowspan]="1" class="header">
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="6">
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="4" [rowspan]="6" class="form">
+        <div class="example-container">
+            <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+              <!-- <mat-checkbox formControlName="">Hide required marker</mat-checkbox> -->
+              
+          
+              <div >
+                    
+            
+                    
+                    <mat-form-field style="width: 18vw;">
+                        <mat-label>User Name</mat-label>
+                        <input matInput placeholder="username" formControlName="username"/>
+                    </mat-form-field>
+                    <br>
+                    
+                    <mat-form-field style="width: 18vw;">
+                        <mat-label>Password</mat-label>
+                        <input matInput placeholder="first name" formControlName="password"/>
+                    </mat-form-field>
+                    
+            
+              </div>
+              
+              <button type="submit" [disabled]="!myForm.valid" mat-fab extended>
+                Sign in
+              </button> Create an account now ? <a [routerLink]="['/register']">sign up</a>
+            </form>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="6">
+    </mat-grid-tile>
+    
+</mat-grid-list>

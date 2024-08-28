@@ -1,0 +1,77 @@
+
+<mat-grid-list cols="6" rowHeight="14vh">
+    <mat-grid-tile [colspan]="2" [rowspan]="1" class="logo header" >
+        <span class="material-symbols-outlined">
+            school
+        </span>Virtual School
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="4" [rowspan]="1" class="header">
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="6">
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="4" [rowspan]="6" class="form">
+        <div class="example-container">
+            <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+              <div class="two">
+                <mat-form-field class="both">
+                  <mat-label>First Name</mat-label>
+                  <input matInput placeholder="first name" formControlName="firstname"/>
+                </mat-form-field>
+                <mat-form-field class="both second">
+                  <mat-label>Last Name</mat-label>
+                  <input matInput placeholder="last name" formControlName="lastname"/>
+                </mat-form-field>
+              </div>
+              <div class="one">
+                <mat-form-field >
+                  <mat-label>User Name</mat-label>
+                  <input matInput placeholder="username" formControlName="username"/>
+                </mat-form-field>
+              </div>
+              <div class="one">
+                <mat-form-field class="email">
+                  <mat-label>Email</mat-label>
+                  <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+                  @if (myForm.hasError('email') && !myForm.hasError('required')) {
+                    <mat-error>Please enter a valid email address</mat-error>
+                  }
+                  @if (myForm.hasError('required')) {
+                    <mat-error>Email is <strong>required</strong></mat-error>
+                  }
+                </mat-form-field>
+              </div>
+              <div >
+                <mat-form-field class="both">
+                  <mat-label>Password</mat-label>
+                  <input matInput placeholder="password" formControlName="password"/>
+                </mat-form-field >
+                <mat-form-field class="both">
+                  <mat-label>Telephone</mat-label>
+                  <input type="tel" matInput placeholder="98 765 432" formControlName="phone">
+                </mat-form-field>
+              </div>
+              
+              
+              
+            
+              <!-- <mat-checkbox formControlName="">Hide required marker</mat-checkbox> -->
+              
+              
+              <div>
+                <label>Are you a :</label>
+                <mat-radio-group formControlName="role">
+                  <mat-radio-button value="ROLE_STUDENT">student</mat-radio-button>
+                  <mat-radio-button value="ROLE_TEACHER">teacher</mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <button type="submit" [disabled]="!myForm.valid" mat-fab extended>
+                Sign up
+              </button> have an account ? <a [routerLink]="['/login']">sign in</a>
+
+            </form>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="6">
+    </mat-grid-tile>
+    
+</mat-grid-list>
