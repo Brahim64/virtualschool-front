@@ -1,0 +1,55 @@
+*,  *:before, *:after{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.profile{
+    border: 1px black solid;
+    border-radius: 20%;
+    margin-left: 0.8vw;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logout{
+    border: 1px black solid;
+    border-radius: 8%;
+    margin-left: 0.8vw;
+    width: 120px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.logout:hover{
+    background-color: rgb(30, 30, 30);
+    color: white;
+}
+.profile:hover{
+    background-color: rgb(30, 30, 30);
+    color: white;
+}
+.nav-item{
+    margin-right: 0.7vw;
+    cursor: pointer;
+}
+li :hover{
+    border-bottom: .20em black solid;
+    border-radius: 5%;
+}
+.navbar-brand{
+    margin-right: 2vw;
+}
+.navbar{
+    height: 8vh;
+}
+ul{
+    display: flex;
+    align-items: center;
+}
+.display{
+    display: none;
+}

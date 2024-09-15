@@ -1,0 +1,23 @@
+
+<div class="position-relative h-75">
+    <div class="container w-75">
+        <div class="row row-cols-3">
+            @if (coursesList) {
+                @for (course of coursesList; track $index) {
+                    <div class="card" style="width: 18rem;">
+                        <img >
+                        <div class="card-body">
+                          <h5 class="card-title">{{coursesList[$index].title}}</h5>
+                          <p class="card-text">{{coursesList[$index].teacher}}</p>
+                          <a (click)="toFiles(course.id)" class="btn btn-primary">Visit</a>
+                        </div>
+                      </div>
+                }
+                
+                
+            }
+          
+          
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div class="container text-center">
+    
+    <div class="row">
+      <div class="col-8">
+        this div is for already uploaded files
+        
+        @if (files) {
+          <div class="container text-center">
+            <div class="row row-cols-3">
+              @for (file of files; track file) {
+                <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">{{file.name}}</h5>
+                    <p class="card-text">{{file.size | toKb:"kb"}}</p>
+                    <button class="btn btn-primary" (click)="download(file.id,file.name)">download</button>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+          
+        }
+      </div>
+      <div class="col-4">
+        this div is for uploading files
+        <app-upload-file [currentCourse]="courseId"></app-upload-file>
+      </div>
+      
+      
+    </div>
+  </div>

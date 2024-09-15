@@ -1,0 +1,27 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <p mat-dialog-title>Create Course</p>
+    <mat-dialog-content class="mat-typography">
+        
+            <div >
+                <h6>Enter your course name</h6>
+                <mat-form-field style="width: 24vw;">
+                    <mat-label>course name</mat-label>
+                    <input matInput placeholder="course name" formControlName="title"/>
+                </mat-form-field>
+                <h6>Generated code </h6>
+                <mat-form-field style="width: 24vw;">
+                    
+                    <mat-label>Generated code </mat-label>
+                    <input matInput placeholder="code" formControlName="code"/>
+                </mat-form-field>
+                
+        
+            </div>
+            
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial [disabled]="!myForm.valid" type="submit" >Create</button>
+    </mat-dialog-actions> 
+</form>
+
