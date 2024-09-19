@@ -19,8 +19,9 @@ import { filter } from 'rxjs';
 })
 export class CourseFilesComponent implements OnInit{
 
+
   courseId:number;
-  files:Files[];
+  files:Files[]=null;
   token:string;
   
   constructor(private route: ActivatedRoute,private fileService:FileService,private storage:StorageService) {}
@@ -28,18 +29,24 @@ export class CourseFilesComponent implements OnInit{
     this.token=this.storage.getUser()['token']
     this.route.paramMap.subscribe(params=>{
       this.courseId=Number(params.get('id'));
-      this.fileService.getFiles(this.token).subscribe(data=>{
-
-        for (let index = 0; index < data.length; index++) {
-          if (data[index]['courseId']==this.courseId) {
-            this.files.push(data[index])
-          }
-          
+      
+    })
+    this.fileService.getFiles(this.token).subscribe(data=>{
+      const new_files:Files[]=[];
+      data.forEach(element => {
+        
+        if (element['courseId']===this.courseId) {
+          new_files.push(element)  
+        }
+        if (new_files.length!=0) {
+          this.files=[];
+          this.files=new_files;
         }
         
-        
-      })
+      });
+      
     })
+    console.log(this.files)
     
   }
   download(id:number,name:string) {
@@ -52,6 +59,10 @@ export class CourseFilesComponent implements OnInit{
       a.click();
       URL.revokeObjectURL(objectUrl);
     });
+  }
+
+  refresh() {
+    window.location.reload()
   }
 
 

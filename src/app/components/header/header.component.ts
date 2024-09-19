@@ -18,6 +18,7 @@ import { AddCourseComponent } from '../add-course/add-course.component';
 })
 export class HeaderComponent implements OnInit{
 
+
   readonly dialog = inject(MatDialog);
 
   username:string;
@@ -60,6 +61,9 @@ export class HeaderComponent implements OnInit{
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+  toProfile() {
+    this.router.navigate(['profile'])
   }
 
 }

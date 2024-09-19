@@ -20,11 +20,11 @@
           
           
         </ul>
-        <form class="d-flex" role="search">
+        <!-- <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-        <a class="nav-link profile" aria-current="page" routerLink="profile">
+        </form> -->
+        <a class="nav-link profile" aria-current="page" style="cursor: pointer;" (click)="toProfile()">
             <span class="material-symbols-outlined">person_outline</span>
         </a>
         <a class="nav-link logout" aria-current="page" (click)="signOut()">
